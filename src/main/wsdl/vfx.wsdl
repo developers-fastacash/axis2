@@ -1,0 +1,3914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mobewallet.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://mobewallet.com/webservices/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://mobewallet.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mobewallet.com/webservices/">
+      <s:element name="LogInEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:LogInElement2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogInElement2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LogInExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogInExResult" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardMonthlyLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardDailyLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="tns:ArrayOfFeeRec" />
+          <s:element minOccurs="1" maxOccurs="1" name="CCYCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCYPairs" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFeeRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FeeRec" nillable="true" type="tns:FeeRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FeeRec">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LowTradeValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="HighTradeValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fee" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:LogInElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogInElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogInResult" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogIn2Result" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogInEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogInEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogInEx2Result" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOut">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogOutResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultElement">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetClientDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetClientDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientDetailsResult" type="tns:ClientRec" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Passport" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassportExpiry" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrivingLicense" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelHome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelWork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IntroCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetClientDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientData" type="tns:ClientRec" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetClientDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetClientDetailsResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientDetails2">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetClientDetails2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientDetails2Result" type="tns:ClientRec2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientRec2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Passport" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassportExpiry" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrivingLicense" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelHome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelWork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IntroCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityQuestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityAnswer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SMSNotification" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EMailNotification" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetClientDetails2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientData" type="tns:ClientRec2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetClientDetails2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetClientDetails2Result" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetClientPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetClientPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetClientPasswordResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSecurityQuestionResult" type="tns:SecurityResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SecurityResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityQuestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityAnswer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmailClientPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailClientPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailClientPasswordResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrencyList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCYPairs" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrencyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCurrencyListResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrencyList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrencyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrencyListResult" type="tns:CurrencyListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CurrencyListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prices" type="tns:ArrayOfPriceRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPriceRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PriceRec" nillable="true" type="tns:PriceRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PriceRec">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pair" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bid" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ask" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastBid" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastAsk" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenPrice" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCurrencyPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCYPair" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrencyPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrencyPriceResult" type="tns:PriceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PriceResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pair" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bid" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ask" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastBid" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastAsk" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenPrice" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCountries">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountriesResult" type="tns:CountryListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Countries" type="tns:ArrayOfCountryRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCountryRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryRec" nillable="true" type="tns:CountryRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CountryRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayCurrency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBeneficiaryList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBeneficiaryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBeneficiaryListResult" type="tns:BeneficiaryListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BeneficiaryListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Beneficiaries" type="tns:ArrayOfBeneficiaryRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBeneficiaryRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficiaryRec" nillable="true" type="tns:BeneficiaryRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficiaryRec">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeneficiaryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SWIFTBIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Routing" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayType" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBeneficiaryList2">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBeneficiaryList2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBeneficiaryList2Result" type="tns:BeneficiaryListResult2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BeneficiaryListResult2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Beneficiaries" type="tns:ArrayOfBeneficiaryRec2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBeneficiaryRec2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficiaryRec2" nillable="true" type="tns:BeneficiaryRec2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficiaryRec2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeneficiaryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SWIFTBIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Routing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayeeMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayeeEMail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayType" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddBeneficiary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SwiftCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBeneficiaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddBeneficiaryResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBeneficiary2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SwiftCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeEMail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBeneficiary2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddBeneficiary2Result" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMobileBeneficiary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMobileBeneficiaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMobileBeneficiaryResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBeneficiary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BeneficiaryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SwiftCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBeneficiaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBeneficiaryResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBeneficiary2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BeneficiaryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAddress3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SwiftCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeEMail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBeneficiary2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBeneficiary2Result" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMobileBeneficiary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BeneficiaryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMobileBeneficiaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMobileBeneficiaryResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBeneficiary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BeneficiaryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBeneficiaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteBeneficiaryResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPaymentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentListResult" type="tns:PaymentListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PaymentListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payments" type="tns:ArrayOfPaymentRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPaymentRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentRec" nillable="true" type="tns:PaymentRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PaymentRec">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCardList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCardListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardListResult" type="tns:CardListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CardListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cards" type="tns:ArrayOfCardRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardRec">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardRec" nillable="true" type="tns:CardRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardRec">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CVV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssueNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpiryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IssueNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpiryDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddCardResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CardID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCardResult" type="tns:ResultElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPromotionCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SellCCY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SellAmount" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPromotionCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPromotionCodeResult" type="tns:PromoCheckResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PromoCheckResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FeeReduction" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeADeal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CardID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="BuyCCY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuyAmount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="SellCCY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SellAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="PayeeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeADealResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeADealResult" type="tns:DealResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DealResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DealNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardMonthlyLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardDailyLimit" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeADealEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CardID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="BuyCCY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuyAmount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="SellCCY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SellAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="BeneficiaryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeADealExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeADealExResult" type="tns:DealResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentLimits">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentLimitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentLimitsResult" type="tns:LimitResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LimitResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardMonthlyLimit" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardDailyLimit" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFeesResult" type="tns:FeeListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FeeListResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="tns:ArrayOfFeeRec" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGenericFees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGenericFeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGenericFeesResult" type="tns:FeeListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPostcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPostcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPostcodeResult" type="tns:PostCodeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PostCodeResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Premises" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckIBAN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIBANResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckIBANResult" type="tns:IBANCheckResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IBANCheckResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="length_check" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iban_checksum_check" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SWIFT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckClientDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="DriversLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FlatNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckClientDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckClientDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankSettlementDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CCY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankSettlementDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankSettlementDetailsResult" type="tns:BankSettleResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BankSettleResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendEMailToBackOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientEMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientTelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEMailToBackOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEMailToBackOfficeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResult" nillable="true" type="tns:LoginResult" />
+      <s:element name="ResultElement" nillable="true" type="tns:ResultElement" />
+      <s:element name="ClientRec" nillable="true" type="tns:ClientRec" />
+      <s:element name="ClientRec2" nillable="true" type="tns:ClientRec2" />
+      <s:element name="SecurityResult" nillable="true" type="tns:SecurityResult" />
+      <s:element name="CurrencyListResult" nillable="true" type="tns:CurrencyListResult" />
+      <s:element name="PriceResult" nillable="true" type="tns:PriceResult" />
+      <s:element name="CountryListResult" nillable="true" type="tns:CountryListResult" />
+      <s:element name="BeneficiaryListResult" nillable="true" type="tns:BeneficiaryListResult" />
+      <s:element name="BeneficiaryListResult2" nillable="true" type="tns:BeneficiaryListResult2" />
+      <s:element name="PaymentListResult" nillable="true" type="tns:PaymentListResult" />
+      <s:element name="CardListResult" nillable="true" type="tns:CardListResult" />
+      <s:element name="PromoCheckResult" nillable="true" type="tns:PromoCheckResult" />
+      <s:element name="DealResult" nillable="true" type="tns:DealResult" />
+      <s:element name="LimitResult" nillable="true" type="tns:LimitResult" />
+      <s:element name="FeeListResult" nillable="true" type="tns:FeeListResult" />
+      <s:element name="PostCodeResult" nillable="true" type="tns:PostCodeResult" />
+      <s:element name="IBANCheckResult" nillable="true" type="tns:IBANCheckResult" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="BankSettleResult" nillable="true" type="tns:BankSettleResult" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+    <s:schema targetNamespace="http://mobewallet.com/webservices/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LogInExSoapIn">
+    <wsdl:part name="parameters" element="tns:LogInEx" />
+  </wsdl:message>
+  <wsdl:message name="LogInExSoapOut">
+    <wsdl:part name="parameters" element="tns:LogInExResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapOut">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2SoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn2" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2SoapOut">
+    <wsdl:part name="parameters" element="tns:LogIn2Response" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:LogInEx2" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:LogInEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapIn">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetClientDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="SetClientDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetails2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientDetails2" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetails2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientDetails2Response" />
+  </wsdl:message>
+  <wsdl:message name="SetClientDetails2SoapIn">
+    <wsdl:part name="parameters" element="tns:SetClientDetails2" />
+  </wsdl:message>
+  <wsdl:message name="SetClientDetails2SoapOut">
+    <wsdl:part name="parameters" element="tns:SetClientDetails2Response" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetClientPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetClientPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestion" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailClientPassword" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailClientPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCurrencyList" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCurrencyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrencyList" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrencyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrencyPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrencyPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBeneficiaryList" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBeneficiaryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryList2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetBeneficiaryList2" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryList2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetBeneficiaryList2Response" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiarySoapIn">
+    <wsdl:part name="parameters" element="tns:AddBeneficiary" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiarySoapOut">
+    <wsdl:part name="parameters" element="tns:AddBeneficiaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2SoapIn">
+    <wsdl:part name="parameters" element="tns:AddBeneficiary2" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2SoapOut">
+    <wsdl:part name="parameters" element="tns:AddBeneficiary2Response" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiarySoapIn">
+    <wsdl:part name="parameters" element="tns:AddMobileBeneficiary" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiarySoapOut">
+    <wsdl:part name="parameters" element="tns:AddMobileBeneficiaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiarySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBeneficiary" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiarySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBeneficiaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2SoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBeneficiary2" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2SoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBeneficiary2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiarySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMobileBeneficiary" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiarySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMobileBeneficiaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiarySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBeneficiary" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiarySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBeneficiaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentList" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardList" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCard" />
+  </wsdl:message>
+  <wsdl:message name="AddCardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCard" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPromotionCode" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPromotionCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeADeal" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeADealResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeADealEx" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeADealExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentLimitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentLimits" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentLimitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentLimitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFees" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGenericFees" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGenericFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPostcode" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPostcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIBAN" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIBANResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankSettlementDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankSettlementDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEMailToBackOffice" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEMailToBackOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2HttpGetIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SourceSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2HttpGetOut">
+    <wsdl:part name="Body" element="tns:LoginResult" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2HttpGetIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SourceSystem" type="s:string" />
+    <wsdl:part name="Language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2HttpGetOut">
+    <wsdl:part name="Body" element="tns:LoginResult" />
+  </wsdl:message>
+  <wsdl:message name="LogOutHttpGetIn" />
+  <wsdl:message name="LogOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetailsHttpGetIn" />
+  <wsdl:message name="GetClientDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ClientRec" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetails2HttpGetIn" />
+  <wsdl:message name="GetClientDetails2HttpGetOut">
+    <wsdl:part name="Body" element="tns:ClientRec2" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordHttpGetIn">
+    <wsdl:part name="OldPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionHttpGetIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionHttpGetOut">
+    <wsdl:part name="Body" element="tns:SecurityResult" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordHttpGetIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListHttpGetIn">
+    <wsdl:part name="CCYPairs" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyListHttpGetIn" />
+  <wsdl:message name="GetCurrencyListHttpGetOut">
+    <wsdl:part name="Body" element="tns:CurrencyListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceHttpGetIn">
+    <wsdl:part name="CCYPair" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceHttpGetOut">
+    <wsdl:part name="Body" element="tns:PriceResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpGetIn" />
+  <wsdl:message name="GetCountriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:CountryListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryListHttpGetIn" />
+  <wsdl:message name="GetBeneficiaryListHttpGetOut">
+    <wsdl:part name="Body" element="tns:BeneficiaryListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryList2HttpGetIn" />
+  <wsdl:message name="GetBeneficiaryList2HttpGetOut">
+    <wsdl:part name="Body" element="tns:BeneficiaryListResult2" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiaryHttpGetIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2HttpGetIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PayeeMobile" type="s:string" />
+    <wsdl:part name="PayeeEMail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2HttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiaryHttpGetIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Operator" type="s:string" />
+    <wsdl:part name="MobileNumber" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiaryHttpGetIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2HttpGetIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PayeeMobile" type="s:string" />
+    <wsdl:part name="PayeeEMail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2HttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiaryHttpGetIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Operator" type="s:string" />
+    <wsdl:part name="MobileNumber" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiaryHttpGetIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentListHttpGetIn" />
+  <wsdl:message name="GetPaymentListHttpGetOut">
+    <wsdl:part name="Body" element="tns:PaymentListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListHttpGetIn" />
+  <wsdl:message name="GetCardListHttpGetOut">
+    <wsdl:part name="Body" element="tns:CardListResult" />
+  </wsdl:message>
+  <wsdl:message name="AddCardHttpGetIn">
+    <wsdl:part name="CardNumber" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="IssueNumber" type="s:string" />
+    <wsdl:part name="ExpiryDate" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Address1" type="s:string" />
+    <wsdl:part name="Address2" type="s:string" />
+    <wsdl:part name="Address3" type="s:string" />
+    <wsdl:part name="PostCode" type="s:string" />
+    <wsdl:part name="CountryCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardHttpGetIn">
+    <wsdl:part name="CardID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeHttpGetIn">
+    <wsdl:part name="PromoCode" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:PromoCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealHttpGetIn">
+    <wsdl:part name="CardID" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="Rate" type="s:string" />
+    <wsdl:part name="BuyCCY" type="s:string" />
+    <wsdl:part name="BuyAmount" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+    <wsdl:part name="PayeeID" type="s:string" />
+    <wsdl:part name="Reference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealHttpGetOut">
+    <wsdl:part name="Body" element="tns:DealResult" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExHttpGetIn">
+    <wsdl:part name="CardID" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="Rate" type="s:string" />
+    <wsdl:part name="BuyCCY" type="s:string" />
+    <wsdl:part name="BuyAmount" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PromoCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExHttpGetOut">
+    <wsdl:part name="Body" element="tns:DealResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentLimitsHttpGetIn" />
+  <wsdl:message name="GetCurrentLimitsHttpGetOut">
+    <wsdl:part name="Body" element="tns:LimitResult" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesHttpGetIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesHttpGetOut">
+    <wsdl:part name="Body" element="tns:FeeListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesHttpGetIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesHttpGetOut">
+    <wsdl:part name="Body" element="tns:FeeListResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeHttpGetIn">
+    <wsdl:part name="PostCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:PostCodeResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANHttpGetIn">
+    <wsdl:part name="IBAN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANHttpGetOut">
+    <wsdl:part name="Body" element="tns:IBANCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsHttpGetIn">
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="FirstName" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+    <wsdl:part name="BirthDate" type="s:string" />
+    <wsdl:part name="DriversLicense" type="s:string" />
+    <wsdl:part name="FlatNumber" type="s:string" />
+    <wsdl:part name="BuildingNumber" type="s:string" />
+    <wsdl:part name="Address1" type="s:string" />
+    <wsdl:part name="Address2" type="s:string" />
+    <wsdl:part name="Town" type="s:string" />
+    <wsdl:part name="County" type="s:string" />
+    <wsdl:part name="PostCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsHttpGetIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankSettleResult" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeHttpGetIn">
+    <wsdl:part name="ClientName" type="s:string" />
+    <wsdl:part name="ClientEMail" type="s:string" />
+    <wsdl:part name="ClientTelephone" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetIn">
+    <wsdl:part name="Mobile" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2HttpPostIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SourceSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn2HttpPostOut">
+    <wsdl:part name="Body" element="tns:LoginResult" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2HttpPostIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SourceSystem" type="s:string" />
+    <wsdl:part name="Language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogInEx2HttpPostOut">
+    <wsdl:part name="Body" element="tns:LoginResult" />
+  </wsdl:message>
+  <wsdl:message name="LogOutHttpPostIn" />
+  <wsdl:message name="LogOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetailsHttpPostIn" />
+  <wsdl:message name="GetClientDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ClientRec" />
+  </wsdl:message>
+  <wsdl:message name="GetClientDetails2HttpPostIn" />
+  <wsdl:message name="GetClientDetails2HttpPostOut">
+    <wsdl:part name="Body" element="tns:ClientRec2" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordHttpPostIn">
+    <wsdl:part name="OldPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetClientPasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionHttpPostIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityQuestionHttpPostOut">
+    <wsdl:part name="Body" element="tns:SecurityResult" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordHttpPostIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailClientPasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListHttpPostIn">
+    <wsdl:part name="CCYPairs" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrencyListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyListHttpPostIn" />
+  <wsdl:message name="GetCurrencyListHttpPostOut">
+    <wsdl:part name="Body" element="tns:CurrencyListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceHttpPostIn">
+    <wsdl:part name="CCYPair" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrencyPriceHttpPostOut">
+    <wsdl:part name="Body" element="tns:PriceResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpPostIn" />
+  <wsdl:message name="GetCountriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:CountryListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryListHttpPostIn" />
+  <wsdl:message name="GetBeneficiaryListHttpPostOut">
+    <wsdl:part name="Body" element="tns:BeneficiaryListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBeneficiaryList2HttpPostIn" />
+  <wsdl:message name="GetBeneficiaryList2HttpPostOut">
+    <wsdl:part name="Body" element="tns:BeneficiaryListResult2" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiaryHttpPostIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2HttpPostIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PayeeMobile" type="s:string" />
+    <wsdl:part name="PayeeEMail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddBeneficiary2HttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiaryHttpPostIn">
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Operator" type="s:string" />
+    <wsdl:part name="MobileNumber" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileBeneficiaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiaryHttpPostIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2HttpPostIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="BankName" type="s:string" />
+    <wsdl:part name="BankAddress1" type="s:string" />
+    <wsdl:part name="BankAddress2" type="s:string" />
+    <wsdl:part name="BankAddress3" type="s:string" />
+    <wsdl:part name="SortCode" type="s:string" />
+    <wsdl:part name="AccountNumber" type="s:string" />
+    <wsdl:part name="SwiftCode" type="s:string" />
+    <wsdl:part name="IBAN" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PayeeMobile" type="s:string" />
+    <wsdl:part name="PayeeEMail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBeneficiary2HttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiaryHttpPostIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Alias" type="s:string" />
+    <wsdl:part name="CCY" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Operator" type="s:string" />
+    <wsdl:part name="MobileNumber" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileBeneficiaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiaryHttpPostIn">
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBeneficiaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentListHttpPostIn" />
+  <wsdl:message name="GetPaymentListHttpPostOut">
+    <wsdl:part name="Body" element="tns:PaymentListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListHttpPostIn" />
+  <wsdl:message name="GetCardListHttpPostOut">
+    <wsdl:part name="Body" element="tns:CardListResult" />
+  </wsdl:message>
+  <wsdl:message name="AddCardHttpPostIn">
+    <wsdl:part name="CardNumber" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="IssueNumber" type="s:string" />
+    <wsdl:part name="ExpiryDate" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Address1" type="s:string" />
+    <wsdl:part name="Address2" type="s:string" />
+    <wsdl:part name="Address3" type="s:string" />
+    <wsdl:part name="PostCode" type="s:string" />
+    <wsdl:part name="CountryCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardHttpPostIn">
+    <wsdl:part name="CardID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultElement" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeHttpPostIn">
+    <wsdl:part name="PromoCode" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPromotionCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:PromoCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealHttpPostIn">
+    <wsdl:part name="CardID" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="Rate" type="s:string" />
+    <wsdl:part name="BuyCCY" type="s:string" />
+    <wsdl:part name="BuyAmount" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+    <wsdl:part name="PayeeID" type="s:string" />
+    <wsdl:part name="Reference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealHttpPostOut">
+    <wsdl:part name="Body" element="tns:DealResult" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExHttpPostIn">
+    <wsdl:part name="CardID" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+    <wsdl:part name="Rate" type="s:string" />
+    <wsdl:part name="BuyCCY" type="s:string" />
+    <wsdl:part name="BuyAmount" type="s:string" />
+    <wsdl:part name="SellCCY" type="s:string" />
+    <wsdl:part name="SellAmount" type="s:string" />
+    <wsdl:part name="BeneficiaryID" type="s:string" />
+    <wsdl:part name="Reference1" type="s:string" />
+    <wsdl:part name="Reference2" type="s:string" />
+    <wsdl:part name="Reference3" type="s:string" />
+    <wsdl:part name="PromoCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeADealExHttpPostOut">
+    <wsdl:part name="Body" element="tns:DealResult" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentLimitsHttpPostIn" />
+  <wsdl:message name="GetCurrentLimitsHttpPostOut">
+    <wsdl:part name="Body" element="tns:LimitResult" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesHttpPostIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFeesHttpPostOut">
+    <wsdl:part name="Body" element="tns:FeeListResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesHttpPostIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericFeesHttpPostOut">
+    <wsdl:part name="Body" element="tns:FeeListResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeHttpPostIn">
+    <wsdl:part name="PostCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPostcodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:PostCodeResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANHttpPostIn">
+    <wsdl:part name="IBAN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIBANHttpPostOut">
+    <wsdl:part name="Body" element="tns:IBANCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsHttpPostIn">
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="FirstName" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+    <wsdl:part name="BirthDate" type="s:string" />
+    <wsdl:part name="DriversLicense" type="s:string" />
+    <wsdl:part name="FlatNumber" type="s:string" />
+    <wsdl:part name="BuildingNumber" type="s:string" />
+    <wsdl:part name="Address1" type="s:string" />
+    <wsdl:part name="Address2" type="s:string" />
+    <wsdl:part name="Town" type="s:string" />
+    <wsdl:part name="County" type="s:string" />
+    <wsdl:part name="PostCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckClientDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsHttpPostIn">
+    <wsdl:part name="CCY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankSettlementDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankSettleResult" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeHttpPostIn">
+    <wsdl:part name="ClientName" type="s:string" />
+    <wsdl:part name="ClientEMail" type="s:string" />
+    <wsdl:part name="ClientTelephone" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEMailToBackOfficeHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostIn">
+    <wsdl:part name="Mobile" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="MoBeLinkClassSoap">
+    <wsdl:operation name="LogInEx">
+      <wsdl:input message="tns:LogInExSoapIn" />
+      <wsdl:output message="tns:LogInExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInSoapIn" />
+      <wsdl:output message="tns:LogInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn2">
+      <wsdl:input message="tns:LogIn2SoapIn" />
+      <wsdl:output message="tns:LogIn2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <wsdl:input message="tns:LogInEx2SoapIn" />
+      <wsdl:output message="tns:LogInEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input message="tns:LogOutSoapIn" />
+      <wsdl:output message="tns:LogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <wsdl:input message="tns:GetClientDetailsSoapIn" />
+      <wsdl:output message="tns:GetClientDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails">
+      <wsdl:input message="tns:SetClientDetailsSoapIn" />
+      <wsdl:output message="tns:SetClientDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <wsdl:input message="tns:GetClientDetails2SoapIn" />
+      <wsdl:output message="tns:GetClientDetails2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails2">
+      <wsdl:input message="tns:SetClientDetails2SoapIn" />
+      <wsdl:output message="tns:SetClientDetails2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <wsdl:input message="tns:SetClientPasswordSoapIn" />
+      <wsdl:output message="tns:SetClientPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <wsdl:input message="tns:GetSecurityQuestionSoapIn" />
+      <wsdl:output message="tns:GetSecurityQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <wsdl:input message="tns:EmailClientPasswordSoapIn" />
+      <wsdl:output message="tns:EmailClientPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <wsdl:input message="tns:SetCurrencyListSoapIn" />
+      <wsdl:output message="tns:SetCurrencyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <wsdl:input message="tns:GetCurrencyListSoapIn" />
+      <wsdl:output message="tns:GetCurrencyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <wsdl:input message="tns:GetCurrencyPriceSoapIn" />
+      <wsdl:output message="tns:GetCurrencyPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesSoapIn" />
+      <wsdl:output message="tns:GetCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <wsdl:input message="tns:GetBeneficiaryListSoapIn" />
+      <wsdl:output message="tns:GetBeneficiaryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <wsdl:input message="tns:GetBeneficiaryList2SoapIn" />
+      <wsdl:output message="tns:GetBeneficiaryList2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <wsdl:input message="tns:AddBeneficiarySoapIn" />
+      <wsdl:output message="tns:AddBeneficiarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <wsdl:input message="tns:AddBeneficiary2SoapIn" />
+      <wsdl:output message="tns:AddBeneficiary2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <wsdl:input message="tns:AddMobileBeneficiarySoapIn" />
+      <wsdl:output message="tns:AddMobileBeneficiarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <wsdl:input message="tns:UpdateBeneficiarySoapIn" />
+      <wsdl:output message="tns:UpdateBeneficiarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <wsdl:input message="tns:UpdateBeneficiary2SoapIn" />
+      <wsdl:output message="tns:UpdateBeneficiary2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <wsdl:input message="tns:UpdateMobileBeneficiarySoapIn" />
+      <wsdl:output message="tns:UpdateMobileBeneficiarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <wsdl:input message="tns:DeleteBeneficiarySoapIn" />
+      <wsdl:output message="tns:DeleteBeneficiarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <wsdl:input message="tns:GetPaymentListSoapIn" />
+      <wsdl:output message="tns:GetPaymentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <wsdl:input message="tns:GetCardListSoapIn" />
+      <wsdl:output message="tns:GetCardListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <wsdl:input message="tns:AddCardSoapIn" />
+      <wsdl:output message="tns:AddCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <wsdl:input message="tns:DeleteCardSoapIn" />
+      <wsdl:output message="tns:DeleteCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <wsdl:input message="tns:CheckPromotionCodeSoapIn" />
+      <wsdl:output message="tns:CheckPromotionCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <wsdl:input message="tns:MakeADealSoapIn" />
+      <wsdl:output message="tns:MakeADealSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <wsdl:input message="tns:MakeADealExSoapIn" />
+      <wsdl:output message="tns:MakeADealExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <wsdl:input message="tns:GetCurrentLimitsSoapIn" />
+      <wsdl:output message="tns:GetCurrentLimitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <wsdl:input message="tns:GetFeesSoapIn" />
+      <wsdl:output message="tns:GetFeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <wsdl:input message="tns:GetGenericFeesSoapIn" />
+      <wsdl:output message="tns:GetGenericFeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <wsdl:input message="tns:CheckPostcodeSoapIn" />
+      <wsdl:output message="tns:CheckPostcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <wsdl:input message="tns:CheckIBANSoapIn" />
+      <wsdl:output message="tns:CheckIBANSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <wsdl:input message="tns:CheckClientDetailsSoapIn" />
+      <wsdl:output message="tns:CheckClientDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <wsdl:input message="tns:GetBankSettlementDetailsSoapIn" />
+      <wsdl:output message="tns:GetBankSettlementDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <wsdl:input message="tns:SendEMailToBackOfficeSoapIn" />
+      <wsdl:output message="tns:SendEMailToBackOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MoBeLinkClassHttpGet">
+    <wsdl:operation name="LogIn2">
+      <wsdl:input message="tns:LogIn2HttpGetIn" />
+      <wsdl:output message="tns:LogIn2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <wsdl:input message="tns:LogInEx2HttpGetIn" />
+      <wsdl:output message="tns:LogInEx2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input message="tns:LogOutHttpGetIn" />
+      <wsdl:output message="tns:LogOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <wsdl:input message="tns:GetClientDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetClientDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <wsdl:input message="tns:GetClientDetails2HttpGetIn" />
+      <wsdl:output message="tns:GetClientDetails2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <wsdl:input message="tns:SetClientPasswordHttpGetIn" />
+      <wsdl:output message="tns:SetClientPasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <wsdl:input message="tns:GetSecurityQuestionHttpGetIn" />
+      <wsdl:output message="tns:GetSecurityQuestionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <wsdl:input message="tns:EmailClientPasswordHttpGetIn" />
+      <wsdl:output message="tns:EmailClientPasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <wsdl:input message="tns:SetCurrencyListHttpGetIn" />
+      <wsdl:output message="tns:SetCurrencyListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <wsdl:input message="tns:GetCurrencyListHttpGetIn" />
+      <wsdl:output message="tns:GetCurrencyListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <wsdl:input message="tns:GetCurrencyPriceHttpGetIn" />
+      <wsdl:output message="tns:GetCurrencyPriceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesHttpGetIn" />
+      <wsdl:output message="tns:GetCountriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <wsdl:input message="tns:GetBeneficiaryListHttpGetIn" />
+      <wsdl:output message="tns:GetBeneficiaryListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <wsdl:input message="tns:GetBeneficiaryList2HttpGetIn" />
+      <wsdl:output message="tns:GetBeneficiaryList2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <wsdl:input message="tns:AddBeneficiaryHttpGetIn" />
+      <wsdl:output message="tns:AddBeneficiaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <wsdl:input message="tns:AddBeneficiary2HttpGetIn" />
+      <wsdl:output message="tns:AddBeneficiary2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <wsdl:input message="tns:AddMobileBeneficiaryHttpGetIn" />
+      <wsdl:output message="tns:AddMobileBeneficiaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <wsdl:input message="tns:UpdateBeneficiaryHttpGetIn" />
+      <wsdl:output message="tns:UpdateBeneficiaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <wsdl:input message="tns:UpdateBeneficiary2HttpGetIn" />
+      <wsdl:output message="tns:UpdateBeneficiary2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <wsdl:input message="tns:UpdateMobileBeneficiaryHttpGetIn" />
+      <wsdl:output message="tns:UpdateMobileBeneficiaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <wsdl:input message="tns:DeleteBeneficiaryHttpGetIn" />
+      <wsdl:output message="tns:DeleteBeneficiaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <wsdl:input message="tns:GetPaymentListHttpGetIn" />
+      <wsdl:output message="tns:GetPaymentListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <wsdl:input message="tns:GetCardListHttpGetIn" />
+      <wsdl:output message="tns:GetCardListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <wsdl:input message="tns:AddCardHttpGetIn" />
+      <wsdl:output message="tns:AddCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <wsdl:input message="tns:DeleteCardHttpGetIn" />
+      <wsdl:output message="tns:DeleteCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <wsdl:input message="tns:CheckPromotionCodeHttpGetIn" />
+      <wsdl:output message="tns:CheckPromotionCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <wsdl:input message="tns:MakeADealHttpGetIn" />
+      <wsdl:output message="tns:MakeADealHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <wsdl:input message="tns:MakeADealExHttpGetIn" />
+      <wsdl:output message="tns:MakeADealExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <wsdl:input message="tns:GetCurrentLimitsHttpGetIn" />
+      <wsdl:output message="tns:GetCurrentLimitsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <wsdl:input message="tns:GetFeesHttpGetIn" />
+      <wsdl:output message="tns:GetFeesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <wsdl:input message="tns:GetGenericFeesHttpGetIn" />
+      <wsdl:output message="tns:GetGenericFeesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <wsdl:input message="tns:CheckPostcodeHttpGetIn" />
+      <wsdl:output message="tns:CheckPostcodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <wsdl:input message="tns:CheckIBANHttpGetIn" />
+      <wsdl:output message="tns:CheckIBANHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <wsdl:input message="tns:CheckClientDetailsHttpGetIn" />
+      <wsdl:output message="tns:CheckClientDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <wsdl:input message="tns:GetBankSettlementDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetBankSettlementDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <wsdl:input message="tns:SendEMailToBackOfficeHttpGetIn" />
+      <wsdl:output message="tns:SendEMailToBackOfficeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSMSHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MoBeLinkClassHttpPost">
+    <wsdl:operation name="LogIn2">
+      <wsdl:input message="tns:LogIn2HttpPostIn" />
+      <wsdl:output message="tns:LogIn2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <wsdl:input message="tns:LogInEx2HttpPostIn" />
+      <wsdl:output message="tns:LogInEx2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input message="tns:LogOutHttpPostIn" />
+      <wsdl:output message="tns:LogOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <wsdl:input message="tns:GetClientDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetClientDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <wsdl:input message="tns:GetClientDetails2HttpPostIn" />
+      <wsdl:output message="tns:GetClientDetails2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <wsdl:input message="tns:SetClientPasswordHttpPostIn" />
+      <wsdl:output message="tns:SetClientPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <wsdl:input message="tns:GetSecurityQuestionHttpPostIn" />
+      <wsdl:output message="tns:GetSecurityQuestionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <wsdl:input message="tns:EmailClientPasswordHttpPostIn" />
+      <wsdl:output message="tns:EmailClientPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <wsdl:input message="tns:SetCurrencyListHttpPostIn" />
+      <wsdl:output message="tns:SetCurrencyListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <wsdl:input message="tns:GetCurrencyListHttpPostIn" />
+      <wsdl:output message="tns:GetCurrencyListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <wsdl:input message="tns:GetCurrencyPriceHttpPostIn" />
+      <wsdl:output message="tns:GetCurrencyPriceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesHttpPostIn" />
+      <wsdl:output message="tns:GetCountriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <wsdl:input message="tns:GetBeneficiaryListHttpPostIn" />
+      <wsdl:output message="tns:GetBeneficiaryListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <wsdl:input message="tns:GetBeneficiaryList2HttpPostIn" />
+      <wsdl:output message="tns:GetBeneficiaryList2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <wsdl:input message="tns:AddBeneficiaryHttpPostIn" />
+      <wsdl:output message="tns:AddBeneficiaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <wsdl:input message="tns:AddBeneficiary2HttpPostIn" />
+      <wsdl:output message="tns:AddBeneficiary2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <wsdl:input message="tns:AddMobileBeneficiaryHttpPostIn" />
+      <wsdl:output message="tns:AddMobileBeneficiaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <wsdl:input message="tns:UpdateBeneficiaryHttpPostIn" />
+      <wsdl:output message="tns:UpdateBeneficiaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <wsdl:input message="tns:UpdateBeneficiary2HttpPostIn" />
+      <wsdl:output message="tns:UpdateBeneficiary2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <wsdl:input message="tns:UpdateMobileBeneficiaryHttpPostIn" />
+      <wsdl:output message="tns:UpdateMobileBeneficiaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <wsdl:input message="tns:DeleteBeneficiaryHttpPostIn" />
+      <wsdl:output message="tns:DeleteBeneficiaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <wsdl:input message="tns:GetPaymentListHttpPostIn" />
+      <wsdl:output message="tns:GetPaymentListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <wsdl:input message="tns:GetCardListHttpPostIn" />
+      <wsdl:output message="tns:GetCardListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <wsdl:input message="tns:AddCardHttpPostIn" />
+      <wsdl:output message="tns:AddCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <wsdl:input message="tns:DeleteCardHttpPostIn" />
+      <wsdl:output message="tns:DeleteCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <wsdl:input message="tns:CheckPromotionCodeHttpPostIn" />
+      <wsdl:output message="tns:CheckPromotionCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <wsdl:input message="tns:MakeADealHttpPostIn" />
+      <wsdl:output message="tns:MakeADealHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <wsdl:input message="tns:MakeADealExHttpPostIn" />
+      <wsdl:output message="tns:MakeADealExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <wsdl:input message="tns:GetCurrentLimitsHttpPostIn" />
+      <wsdl:output message="tns:GetCurrentLimitsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <wsdl:input message="tns:GetFeesHttpPostIn" />
+      <wsdl:output message="tns:GetFeesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <wsdl:input message="tns:GetGenericFeesHttpPostIn" />
+      <wsdl:output message="tns:GetGenericFeesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <wsdl:input message="tns:CheckPostcodeHttpPostIn" />
+      <wsdl:output message="tns:CheckPostcodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <wsdl:input message="tns:CheckIBANHttpPostIn" />
+      <wsdl:output message="tns:CheckIBANHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <wsdl:input message="tns:CheckClientDetailsHttpPostIn" />
+      <wsdl:output message="tns:CheckClientDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <wsdl:input message="tns:GetBankSettlementDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetBankSettlementDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <wsdl:input message="tns:SendEMailToBackOfficeHttpPostIn" />
+      <wsdl:output message="tns:SendEMailToBackOfficeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSMSHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MoBeLinkClassSoap" type="tns:MoBeLinkClassSoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogInEx">
+      <soap:operation soapAction="http://mobewallet.com/webservices/LogInEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://mobewallet.com/webservices/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/LogIn2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/LogInEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://mobewallet.com/webservices/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SetClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetClientDetails2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SetClientDetails2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SetClientPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetSecurityQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <soap:operation soapAction="http://mobewallet.com/webservices/EmailClientPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SetCurrencyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetCurrencyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetCurrencyPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetBeneficiaryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetBeneficiaryList2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <soap:operation soapAction="http://mobewallet.com/webservices/AddBeneficiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/AddBeneficiary2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <soap:operation soapAction="http://mobewallet.com/webservices/AddMobileBeneficiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <soap:operation soapAction="http://mobewallet.com/webservices/UpdateBeneficiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <soap:operation soapAction="http://mobewallet.com/webservices/UpdateBeneficiary2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <soap:operation soapAction="http://mobewallet.com/webservices/UpdateMobileBeneficiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <soap:operation soapAction="http://mobewallet.com/webservices/DeleteBeneficiary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetPaymentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetCardList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <soap:operation soapAction="http://mobewallet.com/webservices/AddCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <soap:operation soapAction="http://mobewallet.com/webservices/DeleteCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <soap:operation soapAction="http://mobewallet.com/webservices/CheckPromotionCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <soap:operation soapAction="http://mobewallet.com/webservices/MakeADeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <soap:operation soapAction="http://mobewallet.com/webservices/MakeADealEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetCurrentLimits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetGenericFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <soap:operation soapAction="http://mobewallet.com/webservices/CheckPostcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <soap:operation soapAction="http://mobewallet.com/webservices/CheckIBAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <soap:operation soapAction="http://mobewallet.com/webservices/CheckClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <soap:operation soapAction="http://mobewallet.com/webservices/GetBankSettlementDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SendEMailToBackOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://mobewallet.com/webservices/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MoBeLinkClassSoap12" type="tns:MoBeLinkClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogInEx">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/LogInEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/LogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/LogIn2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/LogInEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/LogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetClientDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SetClientDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetClientDetails2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientDetails2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SetClientDetails2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SetClientPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetSecurityQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/EmailClientPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SetCurrencyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetCurrencyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetCurrencyPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetBeneficiaryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetBeneficiaryList2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/AddBeneficiary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/AddBeneficiary2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/AddMobileBeneficiary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/UpdateBeneficiary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/UpdateBeneficiary2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/UpdateMobileBeneficiary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/DeleteBeneficiary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetPaymentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetCardList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/AddCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/DeleteCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/CheckPromotionCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/MakeADeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/MakeADealEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetCurrentLimits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetFees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetGenericFees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/CheckPostcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/CheckIBAN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/CheckClientDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/GetBankSettlementDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SendEMailToBackOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://mobewallet.com/webservices/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MoBeLinkClassHttpGet" type="tns:MoBeLinkClassHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="LogIn2">
+      <http:operation location="/LogIn2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <http:operation location="/LogInEx2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <http:operation location="/LogOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <http:operation location="/GetClientDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <http:operation location="/GetClientDetails2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <http:operation location="/SetClientPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <http:operation location="/GetSecurityQuestion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <http:operation location="/EmailClientPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <http:operation location="/SetCurrencyList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <http:operation location="/GetCurrencyList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <http:operation location="/GetCurrencyPrice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <http:operation location="/GetCountries" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <http:operation location="/GetBeneficiaryList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <http:operation location="/GetBeneficiaryList2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <http:operation location="/AddBeneficiary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <http:operation location="/AddBeneficiary2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <http:operation location="/AddMobileBeneficiary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <http:operation location="/UpdateBeneficiary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <http:operation location="/UpdateBeneficiary2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <http:operation location="/UpdateMobileBeneficiary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <http:operation location="/DeleteBeneficiary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <http:operation location="/GetPaymentList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <http:operation location="/GetCardList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <http:operation location="/AddCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <http:operation location="/DeleteCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <http:operation location="/CheckPromotionCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <http:operation location="/MakeADeal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <http:operation location="/MakeADealEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <http:operation location="/GetCurrentLimits" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <http:operation location="/GetFees" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <http:operation location="/GetGenericFees" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <http:operation location="/CheckPostcode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <http:operation location="/CheckIBAN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <http:operation location="/CheckClientDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <http:operation location="/GetBankSettlementDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <http:operation location="/SendEMailToBackOffice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MoBeLinkClassHttpPost" type="tns:MoBeLinkClassHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="LogIn2">
+      <http:operation location="/LogIn2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInEx2">
+      <http:operation location="/LogInEx2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <http:operation location="/LogOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <http:operation location="/GetClientDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails2">
+      <http:operation location="/GetClientDetails2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientPassword">
+      <http:operation location="/SetClientPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestion">
+      <http:operation location="/GetSecurityQuestion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailClientPassword">
+      <http:operation location="/EmailClientPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrencyList">
+      <http:operation location="/SetCurrencyList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyList">
+      <http:operation location="/GetCurrencyList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyPrice">
+      <http:operation location="/GetCurrencyPrice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <http:operation location="/GetCountries" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList">
+      <http:operation location="/GetBeneficiaryList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeneficiaryList2">
+      <http:operation location="/GetBeneficiaryList2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary">
+      <http:operation location="/AddBeneficiary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBeneficiary2">
+      <http:operation location="/AddBeneficiary2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileBeneficiary">
+      <http:operation location="/AddMobileBeneficiary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary">
+      <http:operation location="/UpdateBeneficiary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeneficiary2">
+      <http:operation location="/UpdateBeneficiary2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileBeneficiary">
+      <http:operation location="/UpdateMobileBeneficiary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeneficiary">
+      <http:operation location="/DeleteBeneficiary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentList">
+      <http:operation location="/GetPaymentList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <http:operation location="/GetCardList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCard">
+      <http:operation location="/AddCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCard">
+      <http:operation location="/DeleteCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPromotionCode">
+      <http:operation location="/CheckPromotionCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADeal">
+      <http:operation location="/MakeADeal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeADealEx">
+      <http:operation location="/MakeADealEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentLimits">
+      <http:operation location="/GetCurrentLimits" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFees">
+      <http:operation location="/GetFees" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenericFees">
+      <http:operation location="/GetGenericFees" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPostcode">
+      <http:operation location="/CheckPostcode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIBAN">
+      <http:operation location="/CheckIBAN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClientDetails">
+      <http:operation location="/CheckClientDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankSettlementDetails">
+      <http:operation location="/GetBankSettlementDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMailToBackOffice">
+      <http:operation location="/SendEMailToBackOffice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MoBeLinkClass">
+    <wsdl:port name="MoBeLinkClassSoap" binding="tns:MoBeLinkClassSoap">
+      <soap:address location="http://www.vfxplc.com/mobe/mobelink.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MoBeLinkClassSoap12" binding="tns:MoBeLinkClassSoap12">
+      <soap12:address location="http://www.vfxplc.com/mobe/mobelink.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MoBeLinkClassHttpGet" binding="tns:MoBeLinkClassHttpGet">
+      <http:address location="http://www.vfxplc.com/mobe/mobelink.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MoBeLinkClassHttpPost" binding="tns:MoBeLinkClassHttpPost">
+      <http:address location="http://www.vfxplc.com/mobe/mobelink.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
