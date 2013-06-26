@@ -7,6 +7,7 @@
 	<name>Axis2</name>
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.apache.axis2</groupId>
 				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
@@ -15,17 +16,6 @@
 					<packageName>com.fastacash.vfx</packageName>
 					<wsdlFile>src/main/wsdl/vfx.wsdl</wsdlFile>
 					<databindingName>xmlbeans</databindingName>
-					<resources>
-						<resource>
-							<directory>target/generated-sources/axis2/wsdl2code/resources</directory>
-						</resource>
-						<resource>
-							<directory>target/generated-sources/xmlbeans/resources</directory>
-						</resource>
-					</resources>
-					<resource>
-						<directory>src/main/resources</directory>
-					</resource>
 				</configuration>
 				<executions>
 					<execution>
@@ -35,6 +25,29 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>additional-resources</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>target/generated-sources/axis2/wsdl2code/resources</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 	<dependencies>
@@ -67,50 +80,6 @@
 			<groupId>org.apache.axis2</groupId>
 			<artifactId>axis2-xmlbeans</artifactId>
 			<version>1.6.2</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.apache.ws.commons.axiom</groupId>
-			<artifactId>axiom-api</artifactId>
-			<version>1.2.14</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.ws.commons.axiom</groupId>
-			<artifactId>axiom-impl</artifactId>
-			<version>1.2.14</version>
-		</dependency>
-
-<!-- 
-		<dependency>
-			<groupId>org.apache.xmlbeans</groupId>
-			<artifactId>xmlbeans</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.xmlschema</groupId>
-			<artifactId>xmlschema-core</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.neethi</groupId>
-			<artifactId>neethi</artifactId>
-			<version>3.0.2</version>
-		</dependency>
- -->
-
-
-		<dependency>
-			<groupId>axis2</groupId>
-			<artifactId>axis2-core</artifactId>
-			<version>0.94</version>
-		</dependency>
-
-		<dependency>
-			<groupId>axis</groupId>
-			<artifactId>axis-wsdl4j</artifactId>
-			<version>1.5.1</version>
 		</dependency>
 
 		<dependency>
